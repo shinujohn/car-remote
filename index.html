@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
    <head>
-      <title>Socket.IO chat</title>
+      <title>CAR-REMOTE</title>
    </head>
    <body>
       <form action="">
@@ -30,24 +30,31 @@
             <td></td>
          </tr>
       </form>
-      <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
-      <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.6/socket.io.min.js"></script>
+      <script 
+         src="http://code.jquery.com/jquery-1.11.1.js"></script>
       <script>
          var socket = io();
          $('#forward').click(function(){
-           socket.emit('control', 'FORWARD');
+           socket.emit
+         
+         ('control', 'FORWARD');
            return false;
          });
          
          $('#reverse').click(function(){
            socket.emit('control', 'REVERSE');
-           return false;
+           
+         
+         return false;
          });
          
          $('#left').click(function(){
            socket.emit('control', 'LEFT');
            return false;
          });
+         
+         
          
          $('#right').click(function(){
            socket.emit('control', 'RIGHT');
