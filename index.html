@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+   <head>
+      <title>Socket.IO chat</title>
+   </head>
+   <body>
+      <form action="">
+         <table>
+         <tr>
+            <td></td>
+            <td>
+               <input type="button" id="forward" value="forward" />
+            </td>
+            <td></td>
+         </tr>
+         <tr>
+            <td>
+               <input type="button" id="left" value="left" />
+            </td>
+            <td></td>
+            <td>
+               <input type="button" id="right" value="right" />
+            </td>
+         </tr>
+         <tr>
+            <td></td>
+            <td>
+               <input type="button" id="reverse" value="reverse" />
+            </td>
+            <td></td>
+         </tr>
+      </form>
+      <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+      <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+      <script>
+         var socket = io();
+         $('#forward').click(function(){
+           socket.emit('control', 'FORWARD');
+           return false;
+         });
+         
+         $('#reverse').click(function(){
+           socket.emit('control', 'REVERSE');
+           return false;
+         });
+         
+         $('#left').click(function(){
+           socket.emit('control', 'LEFT');
+           return false;
+         });
+         
+         $('#right').click(function(){
+           socket.emit('control', 'RIGHT');
+           return false;
+         });
+      </script>
+   </body>
+</html>
