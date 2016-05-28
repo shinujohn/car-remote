@@ -7,7 +7,9 @@ app.get('/', function(req, res){
 });
 
 io.on('connection', function(socket){
+  console.log('client connected');
   socket.on('control', function(data){
+    console.log(data);
     io.emit('control', data);
   });
 });
