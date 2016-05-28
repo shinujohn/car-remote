@@ -7,27 +7,19 @@
       <form action="">
          <table>
          <tr>
-            <td></td>
+            <td><input type="button" id="forward_left" value="left" /></td>
             <td>
                <input type="button" id="forward" value="forward" />
             </td>
-            <td></td>
+            <td><input type="button" id="forward_right" value="right" /></td>
          </tr>
+         
          <tr>
-            <td>
-               <input type="button" id="left" value="left" />
-            </td>
-            <td></td>
-            <td>
-               <input type="button" id="right" value="right" />
-            </td>
-         </tr>
-         <tr>
-            <td></td>
+            <td><input type="button" id="reverse_left" value="left" /></td>
             <td>
                <input type="button" id="reverse" value="reverse" />
             </td>
-            <td></td>
+            <td><input type="button" id="reverse_right" value="right" /></td>
          </tr>
       </form>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.6/socket.io.min.js"></script>
@@ -36,30 +28,35 @@
       <script>
          var socket = io();
          $('#forward').click(function(){
-           socket.emit
+           socket.emit('control', 'FORWARD');
+           return false;
+         });
          
-         ('control', 'FORWARD');
+          $('#forward_left').click(function(){
+           socket.emit('control', 'FORWARD_LEFT');
+           return false;
+         });
+         
+          $('#forward_right').click(function(){
+           socket.emit('control', 'FORWARD_RIGHT');
            return false;
          });
          
          $('#reverse').click(function(){
            socket.emit('control', 'REVERSE');
-           
-         
-         return false;
+            return false;
          });
          
-         $('#left').click(function(){
-           socket.emit('control', 'LEFT');
-           return false;
+          $('#reverse_left').click(function(){
+           socket.emit('control', 'REVERSE_LEFT');
+            return false;
          });
          
-         
-         
-         $('#right').click(function(){
-           socket.emit('control', 'RIGHT');
-           return false;
+          $('#reverse_right').click(function(){
+           socket.emit('control', 'REVERSE_RIGHT');
+            return false;
          });
+         
       </script>
    </body>
 </html>
